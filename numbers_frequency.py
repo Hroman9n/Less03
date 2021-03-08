@@ -33,8 +33,8 @@ else:
     # благодаря чему мы можем подсчитать их частоту. 
     for i in range(start,(end+1)):
         for j in str(i):
-            try:
-                index = int(j)
+            try:                                    # try необходим, так как если подается отрицательное
+                index = int(j)                      # число, то минус может помешать
                 numbers[index] = numbers[index]+1
             except:
                 continue
