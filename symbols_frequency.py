@@ -1,3 +1,22 @@
+def counting(text):
+
+    symbols = {}
+
+    for i in text:
+        if i in symbols:
+            symbols[i] += 1
+        else:
+            symbols[i] = 1
+
+    for i in symbols:
+        if i == '\n':
+            print(f"Символ переноса строки встречается {symbols[i]} раз")
+        elif i == ' ':
+            print(f"Пробел встречается {symbols[i]} раз")
+        else:
+            print(f'Символ "{i}" встречается {symbols[i]} раз')
+
+
 test_text = """Hi! Nice to meet you!
 My name is John Smith. I am 19 and a student in college.
 I go to college in New York. 
@@ -13,19 +32,9 @@ They live on Mulberry Street in Boston. Sometimes they visit me in New York.
 I am happy when they visit. My Mom always brings me sweets and candy when they come. 
 I really miss them, too!"""
 
-symbols = {}
+text = input("Введите свой текст, либо нажмите enter для подсчета символов в заранее готовом тексте: ")
 
-for i in test_text:
-    if i in symbols:
-        symbols[i] += 1
-    else:
-        symbols[i] = 1
-
-for i in symbols:
-    if i == '\n':
-        print(f"Символ переноса строки встречается {symbols[i]} раз")
-    elif i == ' ':
-        print(f"Пробел встречается {symbols[i]} раз")
-    else:
-        print(f'Символ "{i}" встречается {symbols[i]} раз')
-
+if text == "":
+    counting(test_text)
+else:
+    counting(text)
