@@ -8,10 +8,8 @@ def do_cipher(string, key):
         # вляются символы                   каждого символа и получаем новый
 
 ### тестовые значения ###
-# key = "01000"
 # key = "fox"
 # key = "midnight"
-# String = "11101"
 # String = "hello, my name is Sergei, nice to meet you"
 # String = "It WaS a GrEaT dAy"
 
@@ -21,5 +19,17 @@ String = input("Phrase: ")
 
 result = do_cipher(String, key)
 
-print(str.encode(result))
-print(do_cipher(result, key))
+print(f'Исходное сообщение: {String}')
+print(f'Зашифрованное сообщение: {str.encode(result)}')
+
+ask = input("Хотите дешифровать сообщение по тому же ключу (да или нет)?: ")
+
+if ask == "да":
+    # обратное шифрование
+    print(do_cipher(result, key))
+elif ask == "нет":
+    print("Заканчиваю работу")
+    exit()
+else:
+    print(f"Введено ни да, не нет, посчитаем это за нет (было введено: {ask})")
+    exit()
